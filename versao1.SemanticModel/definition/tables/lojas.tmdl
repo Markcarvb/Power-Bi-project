@@ -1,0 +1,49 @@
+table lojas
+	lineageTag: d8e8b26b-a3ff-4df7-96ef-c93d88263ca5
+
+	column Column1
+		dataType: string
+		lineageTag: fa57e1e4-9ad4-4642-824b-b0a8902aef7d
+		summarizeBy: none
+		sourceColumn: Column1
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column2
+		dataType: string
+		lineageTag: 85e4d5b3-5011-4570-9a01-35be1f961ea7
+		summarizeBy: none
+		sourceColumn: Column2
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column3
+		dataType: string
+		lineageTag: a47f03d9-a8bc-4f33-89be-829bdb659e94
+		summarizeBy: none
+		sourceColumn: Column3
+
+		annotation SummarizationSetBy = Automatic
+
+	column Column4
+		dataType: string
+		lineageTag: 411489e8-e8de-4bc4-bde9-d572d0233c9b
+		summarizeBy: none
+		sourceColumn: Column4
+
+		annotation SummarizationSetBy = Automatic
+
+	partition lojas = m
+		mode: import
+		source =
+				let
+				    Fonte = Excel.Workbook(File.Contents("C:\Users\Victor\Documents\Desktop\workspace\power bi 1\Power-Bi-project\bd_vendas.xlsx"), null, true),
+				    lojas_Sheet = Fonte{[Item="lojas",Kind="Sheet"]}[Data],
+				    #"Tipo Alterado" = Table.TransformColumnTypes(lojas_Sheet,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}})
+				in
+				    #"Tipo Alterado"
+
+	annotation PBI_NavigationStepName = Navegação
+
+	annotation PBI_ResultType = Table
+

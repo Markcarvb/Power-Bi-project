@@ -1,0 +1,5 @@
+relationship a2bec30e-5663-43c5-ab87-181ecde5ca04
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Vendas.'Data Pedido'
+	toColumn: LocalDateTable_95914689-59ec-4323-8573-bf39158ad165.Date
+
