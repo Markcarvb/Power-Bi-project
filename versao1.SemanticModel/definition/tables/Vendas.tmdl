@@ -71,7 +71,7 @@ table Vendas
 
 	column 'Valor Venda'
 		dataType: decimal
-		formatString: "R$"\ #,0.###############;-"R$"\ #,0.###############;"R$"\ #,0.###############
+		formatString: "R$"\ #,0;-"R$"\ #,0;"R$"\ #,0
 		lineageTag: ea6b286a-2404-4480-8e8a-6507d5420e50
 		summarizeBy: sum
 		sourceColumn: Valor Venda

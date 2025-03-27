@@ -10,8 +10,8 @@
       "nodes": [
         {
           "location": {
-            "x": 0,
-            "y": 48
+            "x": 241,
+            "y": 0
           },
           "nodeIndex": "lojas",
           "nodeLineageTag": "d8e8b26b-a3ff-4df7-96ef-c93d88263ca5",
@@ -23,8 +23,8 @@
         },
         {
           "location": {
-            "x": 284,
-            "y": 0
+            "x": 243,
+            "y": 265
           },
           "nodeIndex": "Vendas",
           "nodeLineageTag": "9b56d4f0-3190-4655-b653-218e75c03bf0",

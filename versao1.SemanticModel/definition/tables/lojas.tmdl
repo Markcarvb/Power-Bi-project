@@ -1,35 +1,35 @@
 table lojas
 	lineageTag: d8e8b26b-a3ff-4df7-96ef-c93d88263ca5
 
-	column Column1
+	column codigo_loja
 		dataType: string
-		lineageTag: fa57e1e4-9ad4-4642-824b-b0a8902aef7d
+		lineageTag: a27f303d-cc97-4f9a-9b04-6194352d2ec9
 		summarizeBy: none
-		sourceColumn: Column1
+		sourceColumn: codigo_loja
 
 		annotation SummarizationSetBy = Automatic
 
-	column Column2
+	column nome_loja
 		dataType: string
-		lineageTag: 85e4d5b3-5011-4570-9a01-35be1f961ea7
+		lineageTag: eba41191-276d-4185-b373-5d0bdd9664e3
 		summarizeBy: none
-		sourceColumn: Column2
+		sourceColumn: nome_loja
 
 		annotation SummarizationSetBy = Automatic
 
-	column Column3
+	column Cidade
 		dataType: string
-		lineageTag: a47f03d9-a8bc-4f33-89be-829bdb659e94
+		lineageTag: 616c8b44-e1db-43eb-ac72-d98786e32077
 		summarizeBy: none
-		sourceColumn: Column3
+		sourceColumn: Cidade
 
 		annotation SummarizationSetBy = Automatic
 
-	column Column4
+	column UF
 		dataType: string
-		lineageTag: 411489e8-e8de-4bc4-bde9-d572d0233c9b
+		lineageTag: 265e381d-f040-431c-9457-b0fa3ccf20c9
 		summarizeBy: none
-		sourceColumn: Column4
+		sourceColumn: UF
 
 		annotation SummarizationSetBy = Automatic
 
@@ -39,9 +39,11 @@ table lojas
 				let
 				    Fonte = Excel.Workbook(File.Contents("C:\Users\Victor\Documents\Desktop\workspace\power bi 1\Power-Bi-project\bd_vendas.xlsx"), null, true),
 				    lojas_Sheet = Fonte{[Item="lojas",Kind="Sheet"]}[Data],
-				    #"Tipo Alterado" = Table.TransformColumnTypes(lojas_Sheet,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}})
+				    #"Tipo Alterado" = Table.TransformColumnTypes(lojas_Sheet,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}}),
+				    #"Cabeçalhos Promovidos" = Table.PromoteHeaders(#"Tipo Alterado", [PromoteAllScalars=true]),
+				    #"Tipo Alterado1" = Table.TransformColumnTypes(#"Cabeçalhos Promovidos",{{"codigo_loja", type text}, {"nome_loja", type text}, {"Cidade", type text}, {"UF", type text}})
 				in
-				    #"Tipo Alterado"
+				    #"Tipo Alterado1"
 
 	annotation PBI_NavigationStepName = Navegação
 

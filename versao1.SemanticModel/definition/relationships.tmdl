@@ -3,3 +3,7 @@ relationship a2bec30e-5663-43c5-ab87-181ecde5ca04
 	fromColumn: Vendas.'Data Pedido'
 	toColumn: LocalDateTable_95914689-59ec-4323-8573-bf39158ad165.Date
 
+relationship 27e9dd3b-e72e-6ea5-5101-4d8e418c419d
+	fromColumn: Vendas.'Código Loja'
+	toColumn: lojas.codigo_loja
+
